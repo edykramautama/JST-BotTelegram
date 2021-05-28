@@ -25,7 +25,7 @@ state = 0;
 bot.onText(/\/predict/, (msg) => { 
     bot.sendMessage(
         msg.chat.id,
-        `masukan nilai i|v contoh 9|9`
+        `masukan nilai i|r contoh 9|9`
     );   
     state = 1;
 });
@@ -34,7 +34,7 @@ bot.on('message', (msg) => {
     if(state == 1){
         s = msg.text.split("|");
         i = s[0]
-        v = s[1]
+        r = s[1]
         model.predict(
             [
                 parseFloat(s[0]),
