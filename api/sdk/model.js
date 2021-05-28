@@ -23,7 +23,7 @@ async function predict(data){
 
     try{
         // path load in public access => github
-        const path = 'https://raw.githubusercontent.com/eykramautama/JST-BotTelegram/master/api/sdk/model.js';
+        const path = 'https://raw.githubusercontent.com/eykramautama/JST-BotTelegram/master/public/ex_model/model.json';
         const model = await tf.loadGraphModel(path);
         
         predict = model.predict(
