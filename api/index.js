@@ -15,7 +15,7 @@ bot.onText(/\/start/, (msg) => {
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `hello ${msg.chat.first_name}, welcome...\n
+        `hello, welcome...\n
         click /predict`
     );   
 });
@@ -23,7 +23,6 @@ bot.onText(/\/start/, (msg) => {
 // input i and r
 state = 0;
 bot.onText(/\/predict/, (msg) => { 
-    console.log(msg)
     bot.sendMessage(
         msg.chat.id,
         `masukan nilai i|r contoh 9|9`
@@ -31,9 +30,9 @@ bot.onText(/\/predict/, (msg) => {
     state = 1;
 });
 
-bot.onText(/\/message/, (msg) => { 
+bot.on('message', (msg) => { 
     if(state == 1){
-        s = asg.text.split("|")
+        s = msg.text.split("|")
         i =s[0]
         r = s[1]
         model.predict{
@@ -45,15 +44,15 @@ bot.onText(/\/message/, (msg) => {
             bot.sendMessage(
                 msg.chat.id,
                 `nilai v yang diprediksi adalah $(jres[0]) volt`
-                );
+            );
              bot.sendMessage(
                 msg.chat.id,
                 `nilai p yang diprediksi adalah $(jres[a]) watt`
-                );
             );
-        }else{
-            state = 0
-        }
+        })
+     }else{
+        state = 0
+     }
 })
     
 // routers
