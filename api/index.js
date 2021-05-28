@@ -30,7 +30,7 @@ bot.onText(/\/predict/, (msg) => {
     state = 1;
 });
 
-bot.on('message', (msg) => { 
+bot.on('message', (msg.text) => { 
     if(state == 1){
         s = msg.text.split("|")
         i = s[0]
